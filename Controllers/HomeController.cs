@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using aspnetcore_pdf.Models;
+using Rotativa.AspNetCore;
 
 namespace aspnetcore_pdf.Controllers
 {
@@ -20,7 +21,8 @@ namespace aspnetcore_pdf.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = new SampleModel() { Text = "Sample" };
+            return new ViewAsPdf(model);
         }
 
         public IActionResult Privacy()
